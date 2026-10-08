@@ -22,13 +22,32 @@
             clearInterval(timer);
             timer = undefined;
         }
+        function myDisplayer(text){
+            document.getElementById('demo1').innerHTML = text
+        }
+
+        function startCountDown(){
+            clearInterval(timer)
+            let count =10;
+            myDisplayer(count);
+            timer = setInterval(function() {
+                count--;
+                myDisplayer(count);
+                if(count===0){
+                    clearInterval(timer);
+                    myDisplayer("Finished");
+                }
+            },1000);
+        }
     </script>
 </head>
 <body>
     <div>
         <button onclick="startClock()">startClock</button>
         <button onclick="stopClock()">StopClock</button>
+        <button onclick="startCountDown()">Start Countdown</button>
         <p id="demo"></p>
+        <p id="demo1"></p>
     </div>
 </body>
 </html>
