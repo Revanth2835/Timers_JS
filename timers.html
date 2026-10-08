@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timers</title>
+    <script>
+        let timer;
+
+        function showTime(){
+                const date = new Date();
+                document.getElementById('demo').innerHTML = date.toLocaleTimeString();
+        }
+
+        function startClock(){
+            if(!timer){
+                timer = setInterval(showTime,1000);
+            }
+        }
+
+        function stopClock(){
+            clearInterval(timer);
+            timer = undefined;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <button onclick="startClock()">startClock</button>
+        <button onclick="stopClock()">StopClock</button>
+        <p id="demo"></p>
+    </div>
+</body>
+</html>
